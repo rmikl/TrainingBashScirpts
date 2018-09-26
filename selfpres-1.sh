@@ -40,7 +40,7 @@
 #!/bin/bash
 count=0
 array=("$@")
-
+echo -e "\nplik $0\nilosc argumentow: $# \n" 
 
 if [ "$#" -lt "3" ]; then
         echo "script needs to have at least 3 args"

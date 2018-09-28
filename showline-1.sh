@@ -2,9 +2,19 @@
 #
 #Komendy systemowe: head tail
 #!/bin/bash 
+line=0
 
-if [[ "${1}" == "-r" ]];then 
-	tail -n $2 $3 | head -n 1
+if [[ "${1}" == "-r" ]];then
+	shift
+	line=$1
+	shift 
+	for i in $@; do
+		tail -n $line $i | head -n 1
+	done
 else	
-	head -n $1 $2 | tail -n 1 
+	line=$1
+	shift
+	for i in $@;do
+		head -n $line $i | tail -n 1 
+	done 
 fi

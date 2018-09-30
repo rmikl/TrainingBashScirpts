@@ -22,15 +22,18 @@
 
 #!/bin/bash
 
+if [[ "$1" != -d* ]];then
+	echo "inside fsdfd"
+	cat $1 | tr -s ' ' | cut -d' '  -f $2
+fi
+
 toGetopts="false"
 while getopts ":d:" opt;do 
 	case $opt in
 		d)	
-			cut -d$OPTARG -f $2 $3 
+			cut -d$OPTARG -f $3 $2
 			toGetopts="true"
 			;;
 	esac
 done
-if [[ ${toGetopt} == "false" ]];then
-	cut -f $1 $2
-fi
+

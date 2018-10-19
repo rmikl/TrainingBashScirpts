@@ -24,7 +24,7 @@ if [[ "$1" == "-r" ]];then
 	echo $tableCount	
 	for i in $@; do 
 		echo $i
-	done | tac | tail -n $tableCount		
+	done | tac | head -n $tableCount		
 else
 	echo $#
 	for i in $@ ; do 
